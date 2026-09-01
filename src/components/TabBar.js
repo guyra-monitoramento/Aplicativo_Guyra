@@ -26,7 +26,7 @@ function FloatingTabBar({ activeTab, onTabPress }) {
           >
             <Ionicons
               name={tab.icon}
-              size={24}
+              size={30}
               color={isFocused ? '#F3680A' : 'black'}
             />
           </TouchableOpacity>
@@ -76,6 +76,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 8,
     paddingHorizontal: 14,
-    fontWeight: 'bold'
   },
 });

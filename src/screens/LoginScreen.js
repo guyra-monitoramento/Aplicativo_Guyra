@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, Text, TextInput } from 'react-native';
+import { StyleSheet, View, Image, Text, TextInput, ScrollView } from 'react-native';
 import React, { useState } from 'react';
 
 
@@ -11,8 +11,8 @@ const LoginScreen = ({ navigation }) => {
     const senhaLogin = '123';
     const [resultadoLogin, setresultadoLogin] = useState('');
 
-    function verificarLogin(){
-        if(email == emailLogin && senha == senhaLogin){
+    function verificarLogin() {
+        if (email == emailLogin && senha == senhaLogin) {
             setresultadoLogin(() => navigation.navigate('Home'));
         } else {
             setresultadoLogin('Login incorreto');
@@ -20,34 +20,36 @@ const LoginScreen = ({ navigation }) => {
     }
 
     return (
-        <View style={styles.container}>
-            <Image style={styles.logo} source={require('../../image/logoGuyra.png')} />
-            <Text style={styles.text1}>ENTRE OU CRIE SUA CONTA</Text>
-            <TextInput
-                style={styles.containerTextInput}
-                placeholder='Digite seu email'
-                value={email}
-                onChangeText={setEmail}
-            />
-            <TextInput
-                style={styles.containerTextInput}
-                placeholder='Digite sua senha'
-                value={senha}
-                onChangeText={setSenha}
-                secureTextEntry={true}
-            />
-            <View style={styles.falha}>
-    {resultadoLogin ?? <Text>{resultadoLogin}</Text>}
-</View>
-            <Button
-                style={styles.botao}
-                texto={"Entrar"}
-                onPress={verificarLogin}
-                textStyle={styles.textBotao}
-            />
-            <Text style={styles.text2}>Ainda não tem uma conta?</Text>
-            <Text style={styles.textLink} onPress={() => navigation.navigate('SignUp')}>Cadastre-se aqui</Text>
-        </View>
+        <ScrollView>
+            <View style={styles.container}>
+                <Image style={styles.logo} source={require('../../image/logoGuyra.png')} />
+                <Text style={styles.text1}>ENTRE OU CRIE SUA CONTA</Text>
+                <TextInput
+                    style={styles.containerTextInput}
+                    placeholder='Digite seu email'
+                    value={email}
+                    onChangeText={setEmail}
+                />
+                <TextInput
+                    style={styles.containerTextInput}
+                    placeholder='Digite sua senha'
+                    value={senha}
+                    onChangeText={setSenha}
+                    secureTextEntry={true}
+                />
+                <View style={styles.falha}>
+                    {resultadoLogin ?? <Text>{resultadoLogin}</Text>}
+                </View>
+                <Button
+                    style={styles.botao}
+                    texto={"Entrar"}
+                    onPress={verificarLogin}
+                    textStyle={styles.textBotao}
+                />
+                <Text style={styles.text2}>Ainda não tem uma conta?</Text>
+                <Text style={styles.textLink} onPress={() => navigation.navigate('SignUp')}>Cadastre-se aqui</Text>
+            </View>
+        </ScrollView>
     )
 }
 
@@ -78,7 +80,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         margin: 10
     },
-    falha:{
+    falha: {
         justifyContent: 'center',
         alignItems: 'center',
         color: 'red',

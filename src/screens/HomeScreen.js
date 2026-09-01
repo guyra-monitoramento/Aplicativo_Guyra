@@ -17,27 +17,33 @@ const HomeScreen = ({ navigation }) => {
                         <View style={styles.cards}>
                             <Text style={styles.textTitleCard}>Temperatura</Text>
                             <Text style={styles.textSubtitleCard}>Média</Text>
+                            <Text style={styles.textDadosCard}>24°C</Text>
                             <Text style={styles.textLinkCard}>Toque para ver gráficos e mais informações</Text>
                         </View>
                         <View style={styles.cards}>
                             <Text style={styles.textTitleCard}>Umidade</Text>
                             <Text style={styles.textSubtitleCard}>Média</Text>
+                            <Text style={styles.textDadosCard}>52%</Text>
                             <Text style={styles.textLinkCard}>Toque para ver detalhes</Text>
                         </View>
                         <View style={styles.cards}>
                             <Text style={styles.textTitleCard} numberOfLines={1}>Gases tóxicos</Text>
                             <Text style={styles.textSubtitleCard}>Média</Text>
+                            <Text style={styles.textDadosCard}>45ppm</Text>
                         </View>
                         <View style={styles.cards}>
                             <Text style={styles.textTitleCard}>Luminosidade</Text>
                             <Text style={styles.textSubtitleCard}>Média</Text>
+                            <Text style={styles.textDadosCard}>321lx</Text>
                         </View>
                     </View>
 
                     <View style={styles.containerConclusao}>
                         <Text style={styles.textTitleResumo}>Resumo</Text>
                         <Text style={styles.textConclusao}>Temperatura, Umidade e Gases: </Text>
+                        <Text style={{color:'#209808', fontWeight: 'bold' }}>bons</Text>
                         <Text style={styles.textConclusao}>Luminosidade:</Text>
+                        <Text style={{color:'#209808', fontWeight: 'bold' }}>levemente baixa</Text>
                     </View>
                 </View>
             </ScrollView>
@@ -92,11 +98,15 @@ const styles = StyleSheet.create({
     },
     textSubtitleCard: {
         fontSize: 15,
-        marginBottom: 6
+        marginBottom: 4
+    },
+    textDadosCard: {
+        fontSize: 30,
+        fontWeight: 'bold'
     },
     textLinkCard: {
         color: 'grey',
-        fontSize: 9
+        fontSize: 7
     },
     containerConclusao: {
         backgroundColor: '#f0c8a5',
@@ -112,7 +122,7 @@ const styles = StyleSheet.create({
         fontSize: 19
     },
     textConclusao: {
-
+        fontSize: 15
     },
 
 });
