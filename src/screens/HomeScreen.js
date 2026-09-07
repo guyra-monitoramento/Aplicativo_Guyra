@@ -2,7 +2,6 @@ import { StyleSheet, View, Image, Text, TextInput, ScrollView } from 'react-nati
 import React, { useState } from 'react';
 
 
-import Button from '../components/Button';
 import ScreenWithTabBar from '../components/TabBar';
 
 const HomeScreen = ({ navigation }) => {
@@ -69,7 +68,7 @@ const styles = StyleSheet.create({
         paddingBottom: 100,
     },
     textTitle: {
-        fontSize: 23,
+        fontSize: 28,
         fontWeight: 'bold',
     },
     textSubtitle: {
@@ -86,27 +85,28 @@ const styles = StyleSheet.create({
         width: '47%',
         backgroundColor: '#e6e6e6',
         borderRadius: 16,
-        paddingVertical: 20,
-        paddingHorizontal: 12,
+        paddingVertical: 15,
+        paddingHorizontal: 9,
         marginBottom: 16,
         alignItems: 'center',
     },
     textTitleCard: {
         fontWeight: 'bold',
-        fontSize: 14,
+        fontSize: 19,
         color: '#F3680A'
     },
     textSubtitleCard: {
-        fontSize: 15,
+        fontSize: 17,
         marginBottom: 4
     },
     textDadosCard: {
-        fontSize: 30,
+        fontSize: 35,
         fontWeight: 'bold'
     },
     textLinkCard: {
         color: 'grey',
-        fontSize: 7
+        fontSize: 9,
+        textAlign: 'center'
     },
     containerConclusao: {
         backgroundColor: '#f0c8a5',

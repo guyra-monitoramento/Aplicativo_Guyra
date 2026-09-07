@@ -10,14 +10,18 @@ const WelcomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Image style={styles.logo} source={require('../../image/logoGuyraBranca.png')} />
-            <Text style={styles.text}>Já é cliente?</Text>
+            <Text style={{color: 'white', fontSize: 30, fontWeight: '700', marginBottom: 20}}>Bem-vindo ao Guyra</Text>
+            <Text style={styles.text}>Acompanhe as informações e alertas
+            {'\n'} 
+            de seu viveiro</Text>
+            <Text style={{color: 'white', fontSize: 16, fontWeight: '600', marginBottom: 10}}>Já possui uma conta?</Text>
             <Button
                 style={styles.botao}
                 texto={"Fazer login"}
                 onPress={() => navigation.navigate('Login')}
                 textStyle={styles.textBotao}
             />
-            <Text style={styles.text}>Primeira vez?</Text>
+            <Text style={{color: 'white', fontSize: 15, marginBottom: 5}}>Ainda não possui uma conta?</Text>
             <Text style={styles.textLink} onPress={() => navigation.navigate('SignUp')}>Cadastre-se aqui</Text>
         </View>
     )
@@ -31,33 +35,37 @@ const styles = StyleSheet.create({
         backgroundColor: '#EA792D',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingHorizontal: 30
     },
     logo: {
-        width: 200,
-        height: 200,
-        marginBottom: 50
+        width: 230,
+        height: 230,
+        marginBottom: 25,
     },
     text: {
         color: 'white',
-        fontSize: 20,
-        fontWeight: 500
-
+        fontSize: 16,
+        fontWeight: 400,
+        textAlign: 'center',
+        lineHeight: 23,
+        marginBottom: 30
     },
     botao: {
-        backgroundColor: 'white',
-        width: 200,
-        marginBottom: 30,
-        margin: 10
+        backgroundColor: '#fff',
+        width: 355,
+        height: 50,
+        borderRadius: 10,
+        marginBottom: 35,
     },
     textBotao: {
-        color: '#9F5A15',
-        fontSize: 20,
-        fontWeight: 'bold'
+        color: '#F3680A',
+        fontSize: 19,
+        fontWeight: '700',
     },
     textLink: {
-        color: 'white',
-        fontSize: 20,
-        fontWeight: 500,
+        color: '#fff',
+        fontSize: 19,
+        fontWeight: '700',
         textDecorationLine: 'underline',
 
     }

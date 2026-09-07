@@ -20,23 +20,31 @@ const LoginScreen = ({ navigation }) => {
     }
 
     return (
-        <ScrollView>
+        <ScrollView contentContainerStyle={styles.container}>
             <View style={styles.container}>
                 <Image style={styles.logo} source={require('../../image/logoGuyra.png')} />
                 <Text style={styles.text1}>ENTRE OU CRIE SUA CONTA</Text>
-                <TextInput
-                    style={styles.containerTextInput}
-                    placeholder='Digite seu email'
-                    value={email}
-                    onChangeText={setEmail}
-                />
-                <TextInput
-                    style={styles.containerTextInput}
-                    placeholder='Digite sua senha'
-                    value={senha}
-                    onChangeText={setSenha}
-                    secureTextEntry={true}
-                />
+
+                <View style={styles.campo}>
+                    <Text style={{ fontSize: 15, fontWeight: '500', marginBottom: 5, marginLeft: 3 }}>Email</Text>
+                    <TextInput
+                        style={styles.containerTextInput}
+                        placeholder='Digite seu email'
+                        value={email}
+                        onChangeText={setEmail}
+                    />
+                </View>
+
+                <View style={styles.campo}>
+                    <Text style={{ fontSize: 15, fontWeight: '500', marginBottom: 2, marginLeft: 3 }}>Senha</Text>
+                    <TextInput
+                        style={styles.containerTextInput}
+                        placeholder='Digite sua senha'
+                        value={senha}
+                        onChangeText={setSenha}
+                        secureTextEntry={true}
+                    />
+                </View>
                 <View style={styles.falha}>
                     {resultadoLogin ?? <Text>{resultadoLogin}</Text>}
                 </View>
@@ -57,28 +65,33 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flexGrow: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
     },
+    campo: {
+        width: 355,
+        alignItems: 'flex-start',
+    },
     logo: {
-        width: 200,
-        height: 200,
+        width: 230,
+        height: 230,
         marginBottom: 20
     },
     text1: {
-        fontSize: 20,
+        fontSize: 25,
         fontWeight: 500,
         marginBottom: 29
     },
     containerTextInput: {
-        height: 40,
+        height: 45,
+        width: 355,
         padding: 10,
         borderRadius: 8,
-        borderColor: '#6F6F6F',
+        borderColor: '#9f9f9f',
         borderWidth: 2,
-        margin: 10
+        marginBottom: 10
     },
     falha: {
         justifyContent: 'center',
@@ -89,12 +102,12 @@ const styles = StyleSheet.create({
     },
     botao: {
         backgroundColor: '#F3680A',
-        width: 250,
+        width: 355,
         margin: 30
     },
     textBotao: {
         color: '#fff',
-        fontSize: 30,
+        fontSize: 20,
     },
     text2: {
         fontSize: 15,

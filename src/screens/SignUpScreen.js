@@ -1,6 +1,6 @@
 import { StyleSheet, View, Image, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import React, { use, useState } from 'react';
 
+import React, { useState } from 'react';
 
 import Button from '../components/Button';
 
@@ -11,122 +11,143 @@ const SignUpScreen = ({ navigation }) => {
     const [sobrenome, setSobrenome] = useState('');
 
     return (
-        <ScrollView>
+        <ScrollView contentContainerStyle={styles.container}>
+
             <View style={styles.headerVoltar}>
                 <TouchableOpacity onPress={() => navigation.navigate('Login')}>
                     <Text style={styles.setaVoltar}>‹</Text>
                 </TouchableOpacity>
             </View>
-            <View style={styles.container}>
-                <Image style={styles.logo} source={require('../../image/logoGuyra.png')} />
-                <Text style={styles.textTitulo}>Cadastre-se</Text>
 
+            <Image
+                style={styles.logo}
+                source={require('../../image/logoGuyra.png')}
+            />
+
+            <Text style={styles.textTitulo}>Cadastre-se</Text>
+
+            <View style={styles.campo}>
                 <Text style={styles.textOnInput}>Nome</Text>
+
                 <TextInput
                     style={styles.containerTextInput}
-                    placeholder='Digite seu nome'
+                    placeholder="Digite seu nome"
                     value={nome}
                     onChangeText={setNome}
                 />
+            </View>
 
+            <View style={styles.campo}>
                 <Text style={styles.textOnInput}>Sobrenome</Text>
+
                 <TextInput
                     style={styles.containerTextInput}
-                    placeholder='Digite seu sobrenome'
+                    placeholder="Digite seu sobrenome"
                     value={sobrenome}
                     onChangeText={setSobrenome}
                 />
+            </View>
 
+            <View style={styles.campo}>
                 <Text style={styles.textOnInput}>Email</Text>
+
                 <TextInput
                     style={styles.containerTextInput}
-                    placeholder='Digite seu email'
+                    placeholder="Digite seu email"
                     value={email}
                     onChangeText={setEmail}
                 />
+            </View>
 
+            <View style={styles.campo}>
                 <Text style={styles.textOnInput}>Senha</Text>
+
                 <TextInput
                     style={styles.containerTextInput}
-                    placeholder='Digite sua senha'
+                    placeholder="Digite sua senha"
                     value={senha}
                     onChangeText={setSenha}
                     secureTextEntry={true}
                 />
-                <Button
-                    style={styles.botao}
-                    texto={"Criar conta"}
-                    onPress={() => navigation.navigate('Login')}
-                    textStyle={styles.textBotao}
-                />
-                
             </View>
+
+            <Button
+                style={styles.botao}
+                texto="Criar conta"
+                onPress={() => navigation.navigate('Login')}
+                textStyle={styles.textBotao}
+            />
+
         </ScrollView>
-    )
-}
+    );
+};
 
 export default SignUpScreen;
 
 const styles = StyleSheet.create({
+
     container: {
-        flex: 1,
+        flexGrow: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingVertical: 20,
     },
+
     headerVoltar: {
+        width: 355,
         alignItems: 'flex-start',
-        paddingHorizontal: 20,
-        backgroundColor: '#fff',
-        marginBottom: -20
+        marginBottom: -10,
     },
+
     setaVoltar: {
         fontSize: 70,
         color: '#F3680A',
+        lineHeight: 70,
     },
+
     logo: {
-        width: 200,
-        height: 200,
-        marginBottom: 20
+        width: 230,
+        height: 230,
+        marginBottom: 20,
     },
+
     textTitulo: {
-        fontSize: 20,
-        fontWeight: 500,
-        marginBottom: 29
+        fontSize: 35,
+        fontWeight: '500',
+        marginBottom: 29,
     },
+
+    campo: {
+        width: 355,
+        alignItems: 'flex-start',
+    },
+
     textOnInput: {
         fontSize: 15,
-        fontWeight: 500,
-        marginEnd: 130
+        fontWeight: '500',
+        marginBottom: 2,
+        marginLeft: 3
     },
+
     containerTextInput: {
-        height: 40,
-        width: 250,
+        height: 45,
+        width: 355,
         padding: 10,
         borderRadius: 8,
-        borderColor: '#6F6F6F',
+        borderColor: '#9f9f9f',
         borderWidth: 2,
-        margin: 10
+        marginBottom: 10,
     },
+
     botao: {
         backgroundColor: '#F3680A',
-        width: 250,
-        margin: 30
+        width: 355,
+        margin: 30,
     },
+
     textBotao: {
         color: '#fff',
-        fontSize: 30,
-    },
-    text2: {
-        fontSize: 15,
-        fontWeight: 500
-
-    },
-    textLink: {
-        color: '#F3680A',
         fontSize: 20,
-        fontWeight: 500,
-        textDecorationLine: 'underline',
-
-    }
+    },
 });
