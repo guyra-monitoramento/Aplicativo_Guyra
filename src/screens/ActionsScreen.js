@@ -81,41 +81,53 @@ export default ActionsScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#E9E9E9',
-        alignItems: 'center',
+        backgroundColor: "#E9E9E9",
+        alignItems: "center",
+        paddingHorizontal: 10,
+        paddingBottom: 120,
     },
+
     textTitle: {
         fontSize: 50,
-        fontWeight: 'bold',
-        color: '#F3680A',
-        margin: 20
+        fontWeight: "bold",
+        color: "#F3680A",
+        margin: 20,
     },
+
     textSubtitle: {
         fontSize: 23,
-        fontWeight: 'bold',
+        fontWeight: "bold",
         margin: 10,
     },
+
     containerVentiladores: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        paddingHorizontal: 20,
-        width: '100%',
-        justifyContent: 'center'
+        flexDirection: "row",
+        flexWrap: "wrap",
+        paddingHorizontal: 10,
+        width: "100%",
+        maxWidth: 500,
+        justifyContent: "center",
     },
+
     containerExaustores: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        width: '100%',
-        paddingHorizontal: 20,
-        justifyContent: 'center'
+        flexDirection: "row",
+        flexWrap: "wrap",
+        width: "100%",
+        maxWidth: 500,
+        paddingHorizontal: 10,
+        justifyContent: "center",
     },
+
     textToggles: {
         fontSize: 20,
-        marginBottom: 6
+        marginBottom: 6,
+        textAlign: "center",
     },
+
     item: {
-        width: '50%',
-        alignItems: 'center',
+        width: "50%",
+        minWidth: 130,
+        alignItems: "center",
         marginBottom: 20,
-    }
+    },
 });

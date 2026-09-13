@@ -3,12 +3,11 @@ import {
     View,
     Text,
     ScrollView,
-} from 'react-native';
+} from "react-native";
 
-import ScreenWithTabBar from '../components/TabBar';
+import ScreenWithTabBar from "../components/TabBar";
 
 const AlertasScreen = () => {
-
     return (
         <ScreenWithTabBar>
             <ScrollView
@@ -17,7 +16,10 @@ const AlertasScreen = () => {
             >
 
                 <Text style={styles.titulo}>
-                    Últimos <Text style={styles.tituloVermelho}>alertas</Text>
+                    Últimos{" "}
+                    <Text style={styles.tituloVermelho}>
+                        alertas
+                    </Text>
                 </Text>
 
                 <Text style={styles.emoji}>🚨</Text>
@@ -72,23 +74,24 @@ const AlertasScreen = () => {
 export default AlertasScreen;
 
 const styles = StyleSheet.create({
-
     container: {
         flexGrow: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        paddingTop: 75,
-        paddingBottom: 40,
+        backgroundColor: "#fff",
+        alignItems: "center",
+        paddingHorizontal: 20,
+        paddingTop: 50,
+        paddingBottom: 130,
     },
 
     titulo: {
         fontSize: 40,
-        fontWeight: '700',
-        color: '#000',
+        fontWeight: "700",
+        color: "#000",
+        textAlign: "center",
     },
 
     tituloVermelho: {
-        color: '#C62828',
+        color: "#C62828",
     },
 
     emoji: {
@@ -97,33 +100,35 @@ const styles = StyleSheet.create({
     },
 
     cardAlerta: {
-        width: 300,
-        height: 89,
-        backgroundColor: '#D9D9D9',
+        width: "100%",
+        maxWidth: 300,
+        minHeight: 89,
+        backgroundColor: "#D9D9D9",
         borderRadius: 30,
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: "center",
+        justifyContent: "center",
         marginBottom: 28,
+        paddingHorizontal: 15,
+        paddingVertical: 12,
     },
 
     data: {
         fontSize: 20,
-        fontWeight: '700',
-        color: '#000',
+        fontWeight: "700",
+        color: "#000",
         marginBottom: 2,
     },
 
     descricao: {
         fontSize: 20,
-        fontWeight: '700',
-        color: '#000',
-        textAlign: 'center',
+        fontWeight: "700",
+        color: "#000",
+        textAlign: "center",
     },
 
     detalhes: {
         fontSize: 15,
-        color: '#999',
+        color: "#999",
         marginTop: 5,
     },
-
 });

@@ -1,108 +1,149 @@
-import { StyleSheet, View, Image, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import {
+    StyleSheet,
+    View,
+    Image,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    ScrollView,
+} from "react-native";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import Button from '../components/Button';
+import Button from "../components/Button";
 
 const SignUpScreen = ({ navigation }) => {
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
-    const [nome, setNome] = useState('');
-    const [sobrenome, setSobrenome] = useState('');
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+    const [nome, setNome] = useState("");
+    const [sobrenome, setSobrenome] = useState("");
 
     return (
-        <ScrollView contentContainerStyle={styles.container}>
+        <SafeAreaView style={styles.safeArea}>
+            <ScrollView
+                contentContainerStyle={styles.container}
+                showsVerticalScrollIndicator={false}
+                keyboardShouldPersistTaps="handled"
+            >
 
-            <View style={styles.headerVoltar}>
-                <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-                    <Text style={styles.setaVoltar}>‹</Text>
-                </TouchableOpacity>
-            </View>
+                <View style={styles.content}>
 
-            <Image
-                style={styles.logo}
-                source={require('../../image/logoGuyra.png')}
-            />
+                    <View style={styles.headerVoltar}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("Login")}
+                        >
+                            <Text style={styles.setaVoltar}>‹</Text>
+                        </TouchableOpacity>
+                    </View>
 
-            <Text style={styles.textTitulo}>Cadastre-se</Text>
+                    <Image
+                        style={styles.logo}
+                        source={require("../../image/logoGuyra.png")}
+                    />
 
-            <View style={styles.campo}>
-                <Text style={styles.textOnInput}>Nome</Text>
+                    <Text style={styles.textTitulo}>
+                        Cadastre-se
+                    </Text>
 
-                <TextInput
-                    style={styles.containerTextInput}
-                    placeholder="Digite seu nome"
-                    value={nome}
-                    onChangeText={setNome}
-                />
-            </View>
+                    <View style={styles.campo}>
+                        <Text style={styles.textOnInput}>
+                            Nome
+                        </Text>
 
-            <View style={styles.campo}>
-                <Text style={styles.textOnInput}>Sobrenome</Text>
+                        <TextInput
+                            style={styles.containerTextInput}
+                            placeholder="Digite seu nome"
+                            value={nome}
+                            onChangeText={setNome}
+                        />
+                    </View>
 
-                <TextInput
-                    style={styles.containerTextInput}
-                    placeholder="Digite seu sobrenome"
-                    value={sobrenome}
-                    onChangeText={setSobrenome}
-                />
-            </View>
+                    <View style={styles.campo}>
+                        <Text style={styles.textOnInput}>
+                            Sobrenome
+                        </Text>
 
-            <View style={styles.campo}>
-                <Text style={styles.textOnInput}>Email</Text>
+                        <TextInput
+                            style={styles.containerTextInput}
+                            placeholder="Digite seu sobrenome"
+                            value={sobrenome}
+                            onChangeText={setSobrenome}
+                        />
+                    </View>
 
-                <TextInput
-                    style={styles.containerTextInput}
-                    placeholder="Digite seu email"
-                    value={email}
-                    onChangeText={setEmail}
-                />
-            </View>
+                    <View style={styles.campo}>
+                        <Text style={styles.textOnInput}>
+                            Email
+                        </Text>
 
-            <View style={styles.campo}>
-                <Text style={styles.textOnInput}>Senha</Text>
+                        <TextInput
+                            style={styles.containerTextInput}
+                            placeholder="Digite seu email"
+                            value={email}
+                            onChangeText={setEmail}
+                        />
+                    </View>
 
-                <TextInput
-                    style={styles.containerTextInput}
-                    placeholder="Digite sua senha"
-                    value={senha}
-                    onChangeText={setSenha}
-                    secureTextEntry={true}
-                />
-            </View>
+                    <View style={styles.campo}>
+                        <Text style={styles.textOnInput}>
+                            Senha
+                        </Text>
 
-            <Button
-                style={styles.botao}
-                texto="Criar conta"
-                onPress={() => navigation.navigate('Login')}
-                textStyle={styles.textBotao}
-            />
+                        <TextInput
+                            style={styles.containerTextInput}
+                            placeholder="Digite sua senha"
+                            value={senha}
+                            onChangeText={setSenha}
+                            secureTextEntry={true}
+                        />
+                    </View>
 
-        </ScrollView>
+                    <Button
+                        style={styles.botao}
+                        texto="Criar conta"
+                        onPress={() => navigation.navigate("Login")}
+                        textStyle={styles.textBotao}
+                    />
+
+                </View>
+
+            </ScrollView>
+        </SafeAreaView>
     );
 };
 
 export default SignUpScreen;
 
 const styles = StyleSheet.create({
+    safeArea: {
+        flex: 1,
+        backgroundColor: "#fff",
+    },
 
     container: {
         flexGrow: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: "center",
+        justifyContent: "center",
+        paddingHorizontal: 20,
         paddingVertical: 20,
     },
 
+    content: {
+        width: "100%",
+        maxWidth: 355,
+        alignItems: "center",
+    },
+
     headerVoltar: {
-        width: 355,
-        alignItems: 'flex-start',
+        width: "100%",
+        alignItems: "flex-start",
         marginBottom: -10,
     },
 
     setaVoltar: {
         fontSize: 70,
-        color: '#F3680A',
+        color: "#F3680A",
         lineHeight: 70,
     },
 
@@ -114,40 +155,40 @@ const styles = StyleSheet.create({
 
     textTitulo: {
         fontSize: 35,
-        fontWeight: '500',
+        fontWeight: "500",
         marginBottom: 29,
     },
 
     campo: {
-        width: 355,
-        alignItems: 'flex-start',
+        width: "100%",
+        alignItems: "flex-start",
     },
 
     textOnInput: {
         fontSize: 15,
-        fontWeight: '500',
+        fontWeight: "500",
         marginBottom: 2,
-        marginLeft: 3
+        marginLeft: 3,
     },
 
     containerTextInput: {
         height: 45,
-        width: 355,
+        width: "100%",
         padding: 10,
         borderRadius: 8,
-        borderColor: '#9f9f9f',
+        borderColor: "#9f9f9f",
         borderWidth: 2,
         marginBottom: 10,
     },
 
     botao: {
-        backgroundColor: '#F3680A',
-        width: 355,
+        backgroundColor: "#F3680A",
+        width: "100%",
         margin: 30,
     },
 
     textBotao: {
-        color: '#fff',
+        color: "#fff",
         fontSize: 20,
     },
 });
