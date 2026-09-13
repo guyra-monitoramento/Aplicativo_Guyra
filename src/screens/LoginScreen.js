@@ -46,7 +46,7 @@ const LoginScreen = ({ navigation }) => {
                     />
                 </View>
                 <View style={styles.falha}>
-                    {resultadoLogin ?? <Text>{resultadoLogin}</Text>}
+                    {resultadoLogin ?? <Text style={{color: 'red', fontWeight: 'bold'}}>{resultadoLogin}</Text>}
                 </View>
                 <Button
                     style={styles.botao}
