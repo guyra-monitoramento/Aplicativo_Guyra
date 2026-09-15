@@ -9,6 +9,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import ActionsScreen from "./src/screens/ActionsScreen";
 import AlertasScreen from "./src/screens/AlertasScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
+import EditProfileScreen from "./src/screens/EditProfileScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,7 @@ export default function App() {
           <Stack.Screen name="Actions" component={ActionsScreen} />
           <Stack.Screen name="Alerts" component={AlertasScreen} />
           <Stack.Screen name="Profile" component={ProfileScreen} />
+          <Stack.Screen name="EditProfile" component={EditProfileScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

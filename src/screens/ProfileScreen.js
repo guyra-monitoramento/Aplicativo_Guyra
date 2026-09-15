@@ -10,7 +10,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import ScreenWithTabBar from "../components/TabBar";
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ navigation }) => {
   return (
     <ScreenWithTabBar>
       <ScrollView
@@ -174,6 +174,7 @@ const ProfileScreen = () => {
           <TouchableOpacity
             style={styles.editButton}
             activeOpacity={0.8}
+            onPress={() => navigation.navigate("EditProfile")}
           >
             <Ionicons
               name="create-outline"

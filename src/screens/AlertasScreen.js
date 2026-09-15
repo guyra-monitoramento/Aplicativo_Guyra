@@ -22,8 +22,6 @@ const AlertasScreen = () => {
                     </Text>
                 </Text>
 
-                <Text style={styles.emoji}>🚨</Text>
-
                 <View style={styles.cardAlerta}>
                     <Text style={styles.data}>
                         17/06/2026
@@ -88,14 +86,11 @@ const styles = StyleSheet.create({
         fontWeight: "700",
         color: "#000",
         textAlign: "center",
+        marginBottom: 38,
     },
 
     tituloVermelho: {
         color: "#C62828",
-    },
-
-    emoji: {
-        fontSize: 37,
         marginBottom: 38,
     },
 

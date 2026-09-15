@@ -8,7 +8,7 @@ import {
     ScrollView,
 } from "react-native";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import Button from "../components/Button";
@@ -17,7 +17,7 @@ const SignUpScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [nome, setNome] = useState("");
-    const [sobrenome, setSobrenome] = useState("");
+    const [telefone, setTelefone] = useState("");
 
     return (
         <SafeAreaView style={styles.safeArea}>
@@ -61,14 +61,14 @@ const SignUpScreen = ({ navigation }) => {
 
                     <View style={styles.campo}>
                         <Text style={styles.textOnInput}>
-                            Sobrenome
+                            Telefone
                         </Text>
 
                         <TextInput
                             style={styles.containerTextInput}
-                            placeholder="Digite seu sobrenome"
-                            value={sobrenome}
-                            onChangeText={setSobrenome}
+                            placeholder="Digite seu telefone"
+                            value={telefone}
+                            onChangeText={setTelefone}
                         />
                     </View>
 
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     headerVoltar: {
         width: "100%",
         alignItems: "flex-start",
-        marginBottom: -10,
+        marginBottom: -40,
     },
 
     setaVoltar: {
@@ -150,13 +150,12 @@ const styles = StyleSheet.create({
     logo: {
         width: 230,
         height: 230,
-        marginBottom: 20,
     },
 
     textTitulo: {
-        fontSize: 35,
+        fontSize: 30,
         fontWeight: "500",
-        marginBottom: 29,
+        marginBottom: 16,
     },
 
     campo: {

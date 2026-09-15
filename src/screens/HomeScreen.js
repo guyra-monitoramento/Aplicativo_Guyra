@@ -198,9 +198,9 @@ const styles = StyleSheet.create({
     },
 
     containerConclusao: {
-        backgroundColor: "#f0c8a5",
+        backgroundColor: "#FAD7B5",
         width: "100%",
-        maxWidth: 250,
+        maxWidth: 330,
         minHeight: 130,
         borderRadius: 10,
         alignItems: "center",
@@ -211,16 +211,17 @@ const styles = StyleSheet.create({
         color: "#F3680A",
         fontWeight: "bold",
         margin: 10,
-        fontSize: 19,
+        fontSize: 25,
     },
 
     textConclusao: {
-        fontSize: 15,
+        fontSize: 20,
         textAlign: "center",
     },
 
     bom: {
         color: "#209808",
         fontWeight: "bold",
+        fontSize: 18
     },
 });

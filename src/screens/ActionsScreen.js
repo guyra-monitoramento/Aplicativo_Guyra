@@ -1,7 +1,6 @@
 import { StyleSheet, View, Image, Text, TextInput, Switch } from 'react-native';
 import React, { useState } from 'react';
 
-import Button from '../components/Button';
 import ScreenWithTabBar from '../components/TabBar';
 
 
@@ -22,9 +21,9 @@ const ActionsScreen = ({ navigation }) => {
                     <Switch
                         value={ativado1}
                         onValueChange={setAtivado1}
-                        trackColor={{ false: '#767577', true: '#15ff00' }}
-                        thumbColor={ativado1 ? '#f5dd4b' : '#f4f3f4'}
-                        style={{ transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }] }}
+                        trackColor={{ false: '#767577', true: '#1ADF00' }}
+                        thumbColor={ativado1 ? '#00450d' : '#f4f3f4'}
+                        style={{ transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }], marginBottom: 20 }}
                     />
                     </View>
                     <View style={styles.item}>
@@ -32,8 +31,8 @@ const ActionsScreen = ({ navigation }) => {
                     <Switch
                         value={ativado2}
                         onValueChange={setAtivado2}
-                        trackColor={{ false: '#767577', true: '#15ff00' }}
-                        thumbColor={ativado2 ? '#f5dd4b' : '#f4f3f4'}
+                        trackColor={{ false: '#767577', true: '#1ADF00' }}
+                        thumbColor={ativado2 ? '#00450d' : '#f4f3f4'}
                         style={{ transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }] }}
                     />
                     </View>
@@ -42,8 +41,8 @@ const ActionsScreen = ({ navigation }) => {
                     <Switch
                         value={ativado3}
                         onValueChange={setAtivado3}
-                        trackColor={{ false: '#767577', true: '#15ff00' }}
-                        thumbColor={ativado3 ? '#f5dd4b' : '#f4f3f4'}
+                        trackColor={{ false: '#767577', true: '#1ADF00' }}
+                        thumbColor={ativado3 ? '#00450d' : '#f4f3f4'}
                         style={{ transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }] }}
                     />
                     </View>
@@ -55,8 +54,8 @@ const ActionsScreen = ({ navigation }) => {
                     <Switch
                         value={ativado4}
                         onValueChange={setAtivado4}
-                        trackColor={{ false: '#767577', true: '#15ff00' }}
-                        thumbColor={ativado4 ? '#f5dd4b' : '#f4f3f4'}
+                        trackColor={{ false: '#767577', true: '#1ADF00' }}
+                        thumbColor={ativado4 ? '#00450d' : '#f4f3f4'}
                         style={{ transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }] }}
                     />
                     </View>
@@ -65,8 +64,8 @@ const ActionsScreen = ({ navigation }) => {
                     <Switch
                         value={ativado5}
                         onValueChange={setAtivado5}
-                        trackColor={{ false: '#767577', true: '#15ff00' }}
-                        thumbColor={ativado5 ? '#f5dd4b' : '#f4f3f4'}
+                        trackColor={{ false: '#767577', true: '#1ADF00' }}
+                        thumbColor={ativado5 ? '#00450d' : '#f4f3f4'}
                         style={{ transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }] }}
                     />
                     </View>
@@ -88,25 +87,24 @@ const styles = StyleSheet.create({
     },
 
     textTitle: {
-        fontSize: 50,
+        fontSize: 60,
         fontWeight: "bold",
         color: "#F3680A",
         margin: 20,
     },
 
     textSubtitle: {
-        fontSize: 23,
+        fontSize: 30,
         fontWeight: "bold",
-        margin: 10,
+        margin: 20,
     },
 
     containerVentiladores: {
         flexDirection: "row",
         flexWrap: "wrap",
-        paddingHorizontal: 10,
+        paddingHorizontal: 30,
         width: "100%",
         maxWidth: 500,
-        justifyContent: "center",
     },
 
     containerExaustores: {
@@ -120,7 +118,7 @@ const styles = StyleSheet.create({
 
     textToggles: {
         fontSize: 20,
-        marginBottom: 6,
+        marginBottom: 15,
         textAlign: "center",
     },
 

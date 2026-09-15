@@ -141,13 +141,13 @@ const styles = StyleSheet.create({
     logo: {
         width: 230,
         height: 230,
-        marginBottom: 20,
+        marginBottom: 10,
     },
 
     text1: {
-        fontSize: 25,
+        fontSize: 20,
         fontWeight: "500",
-        marginBottom: 29,
+        marginBottom: 14,
         textAlign: "center",
     },
 
