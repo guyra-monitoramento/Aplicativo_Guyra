@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -6,11 +6,39 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
+  Alert,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import * as ImagePicker from "expo-image-picker";
 import ScreenWithTabBar from "../components/TabBar";
 
 const ProfileScreen = ({ navigation }) => {
+  const [imagemUri, setImagemUri] = useState(null);
+
+  const selecionarImagem = async () => {
+    const permissaoResultado =
+      await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+    if (!permissaoResultado.granted) {
+      Alert.alert(
+        "Permissão necessária",
+        "A permissão para acessar a galeria é obrigatória."
+      );
+      return;
+    }
+
+    const resultado = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!resultado.canceled) {
+      setImagemUri(resultado.assets[0].uri);
+    }
+  };
+
   return (
     <ScreenWithTabBar>
       <ScrollView
@@ -18,180 +46,105 @@ const ProfileScreen = ({ navigation }) => {
         contentContainerStyle={styles.container}
         showsVerticalScrollIndicator={false}
       >
-        {/* TÍTULO */}
         <Text style={styles.title}>Seu perfil</Text>
 
-        {/* CARD DO PERFIL */}
         <View style={styles.profileCard}>
           <View style={styles.profileInfo}>
             <Text style={styles.name}>Nikolas Ferreira</Text>
 
             <View style={styles.emailContainer}>
-              <Ionicons
-                name="mail-outline"
-                size={20}
-                color="#687386"
-              />
+              <Ionicons name="mail-outline" size={20} color="#687386" />
 
-              <Text style={styles.email}>
-                nicknicks@email.com
-              </Text>
+              <Text style={styles.email}>nicknicks@email.com</Text>
             </View>
           </View>
 
-          {/* FOTO */}
           <View style={styles.photoContainer}>
-            <View style={styles.photo}>
-              {/* 
-                Se você tiver uma foto do usuário,
-                coloque aqui:
-                
-                <Image
-                  source={require("../../image/fotoPerfil.png")}
-                  style={styles.photoImage}
-                />
-              */}
+            <TouchableOpacity
+              style={styles.photo}
+              activeOpacity={0.8}
+              onPress={selecionarImagem}
+            >
+              {imagemUri ? (
+                <Image source={{ uri: imagemUri }} style={styles.photoImage} />
+              ) : (
+                <Ionicons name="person" size={58} color="#F3680A" />
+              )}
+            </TouchableOpacity>
 
-              <Ionicons
-                name="person"
-                size={58}
-                color="#F3680A"
-              />
-            </View>
-            <Text style={styles.addPhoto}>
-              Adicionar foto
-            </Text>
+            <TouchableOpacity onPress={selecionarImagem} activeOpacity={0.8}>
+              <Text style={styles.addPhoto}>
+                {imagemUri ? "Trocar foto" : "Adicionar foto"}
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
 
-        {/* CARD DOS DADOS */}
         <View style={styles.dataCard}>
-
           <View style={styles.dataTitleContainer}>
             <View style={styles.titleIcon}>
-              <Ionicons
-                name="person"
-                size={26}
-                color="#F3680A"
-              />
+              <Ionicons name="person" size={26} color="#F3680A" />
             </View>
 
-            <Text style={styles.dataTitle}>
-              Seus dados
-            </Text>
+            <Text style={styles.dataTitle}>Seus dados</Text>
           </View>
 
-          {/* EMAIL */}
-          <TouchableOpacity
-            style={styles.dataItem}
-            activeOpacity={0.8}
-          >
+          <TouchableOpacity style={styles.dataItem} activeOpacity={0.8}>
             <View style={styles.dataIcon}>
-              <Ionicons
-                name="mail-outline"
-                size={26}
-                color="#F3680A"
-              />
+              <Ionicons name="mail-outline" size={26} color="#F3680A" />
             </View>
 
             <View style={styles.dataText}>
               <Text style={styles.label}>Email</Text>
-              <Text style={styles.value}>
-                nicknicks@email.com
-              </Text>
+              <Text style={styles.value}>nicknicks@email.com</Text>
             </View>
-
           </TouchableOpacity>
 
-          {/* TELEFONE */}
-          <TouchableOpacity
-            style={styles.dataItem}
-            activeOpacity={0.8}
-          >
+          <TouchableOpacity style={styles.dataItem} activeOpacity={0.8}>
             <View style={styles.dataIcon}>
-              <Ionicons
-                name="call-outline"
-                size={26}
-                color="#F3680A"
-              />
+              <Ionicons name="call-outline" size={26} color="#F3680A" />
             </View>
 
             <View style={styles.dataText}>
               <Text style={styles.label}>Telefone</Text>
-              <Text style={styles.value}>
-                +55 (19) xxxx-9352
-              </Text>
+              <Text style={styles.value}>+55 (19) xxxx-9352</Text>
             </View>
           </TouchableOpacity>
 
-          {/* SENHA */}
-          <TouchableOpacity
-            style={styles.dataItem}
-            activeOpacity={0.8}
-          >
+          <TouchableOpacity style={styles.dataItem} activeOpacity={0.8}>
             <View style={styles.dataIcon}>
-              <Ionicons
-                name="lock-closed-outline"
-                size={26}
-                color="#F3680A"
-              />
+              <Ionicons name="lock-closed-outline" size={26} color="#F3680A" />
             </View>
 
             <View style={styles.dataText}>
               <Text style={styles.label}>Senha</Text>
-              <Text style={styles.value}>
-                ••••••••••••
-              </Text>
+              <Text style={styles.value}>••••••••••••</Text>
             </View>
           </TouchableOpacity>
 
-          {/* PORTE */}
-          <TouchableOpacity
-            style={styles.dataItem}
-            activeOpacity={0.8}
-          >
+          <TouchableOpacity style={styles.dataItem} activeOpacity={0.8}>
             <View style={styles.dataIcon}>
-              <Ionicons
-                name="home-outline"
-                size={26}
-                color="#F3680A"
-              />
+              <Ionicons name="home-outline" size={26} color="#F3680A" />
             </View>
 
             <View style={styles.dataText}>
-              <Text style={styles.label}>
-                Porte do viveiro
-              </Text>
-
-              <Text style={styles.value}>
-                médio
-              </Text>
+              <Text style={styles.label}>Porte do viveiro</Text>
+              <Text style={styles.value}>médio</Text>
             </View>
-
           </TouchableOpacity>
 
-          {/* BOTÃO */}
           <TouchableOpacity
             style={styles.editButton}
             activeOpacity={0.8}
             onPress={() => navigation.navigate("EditProfile")}
           >
-            <Ionicons
-              name="create-outline"
-              size={26}
-              color="#FFFFFF"
-            />
+            <Ionicons name="create-outline" size={26} color="#FFFFFF" />
 
-            <Text style={styles.editButtonText}>
-              Editar dados
-            </Text>
+            <Text style={styles.editButtonText}>Editar dados</Text>
           </TouchableOpacity>
-
         </View>
 
-        {/* Espaço para a TabBar */}
         <View style={styles.bottomSpace} />
-
       </ScrollView>
     </ScreenWithTabBar>
   );
@@ -406,6 +359,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: "600",
   },
+
   editButton: {
     width: "100%",
     minHeight: 58,
