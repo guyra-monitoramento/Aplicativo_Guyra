@@ -1,43 +1,62 @@
 import React, { useState } from "react";
 import {
+  Alert,
   StyleSheet,
   View,
   Text,
   ScrollView,
   TouchableOpacity,
   Image,
-  Alert,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import * as ImagePicker from "expo-image-picker";
 import ScreenWithTabBar from "../components/TabBar";
+import * as ImagePicker from 'expo-image-picker';
 
 const ProfileScreen = ({ navigation }) => {
-  const [imagemUri, setImagemUri] = useState(null);
+  const [image, setImage] = useState(null);
 
-  const selecionarImagem = async () => {
-    const permissaoResultado =
-      await ImagePicker.requestMediaLibraryPermissionsAsync();
+  const pickImage = async () => {
+    const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
-    if (!permissaoResultado.granted) {
-      Alert.alert(
-        "Permissão necessária",
-        "A permissão para acessar a galeria é obrigatória."
-      );
-      return;
-    }
+  if (!permissionResult.granted){
+    Alert.alert('Permission required', 'Permission to acess media library is required.');
+    return;
+  }
 
-    const resultado = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-    });
+  let result = await ImagePicker.launchImageLibraryAsync({
+    mediaTypes: ['images'],
+    allowsEditing: true,
+    aspect: [4, 3],
+    quality: 1,
+  });
 
-    if (!resultado.canceled) {
-      setImagemUri(resultado.assets[0].uri);
-    }
-  };
+  console.log(result);
+
+  if (!result.canceled) {
+    setImage(result.assets[0].uri);
+  }
+};
+
+const takePhoto = async () => {
+  const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
+  
+  if (!permissionResult.granted){
+    Alert.alert('Permission required', 'Permission to access the camera is required.');
+    return;
+  }
+
+let result = await ImagePicker.launchCameraAsync({
+  allowsEditing: true,
+  aspect: [4, 3],
+  quality: 1,
+});
+
+console.log (result);
+
+if (!result.canceled){
+  setImage(result.assets[0].uri);
+}
+};
 
   return (
     <ScreenWithTabBar>
@@ -53,84 +72,136 @@ const ProfileScreen = ({ navigation }) => {
             <Text style={styles.name}>Nikolas Ferreira</Text>
 
             <View style={styles.emailContainer}>
-              <Ionicons name="mail-outline" size={20} color="#687386" />
+              <Ionicons
+                name="mail-outline"
+                size={20}
+                color="#687386"
+              />
 
-              <Text style={styles.email}>nicknicks@email.com</Text>
+              <Text style={styles.email}>
+                nicknicks@email.com
+              </Text>
             </View>
           </View>
 
           <View style={styles.photoContainer}>
-            <TouchableOpacity
-              style={styles.photo}
-              activeOpacity={0.8}
-              onPress={selecionarImagem}
-            >
-              {imagemUri ? (
-                <Image source={{ uri: imagemUri }} style={styles.photoImage} />
-              ) : (
-                <Ionicons name="person" size={58} color="#F3680A" />
+            <View style={styles.photo}>
+              { image ? ( <Image source={{ uri: image}} style={styles.photoImage} />) : (
+              <Ionicons
+                name="person"
+                size={58}
+                color="#F3680A"
+              />
               )}
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={selecionarImagem} activeOpacity={0.8}>
-              <Text style={styles.addPhoto}>
-                {imagemUri ? "Trocar foto" : "Adicionar foto"}
-              </Text>
-            </TouchableOpacity>
+            </View>
+            <Text style={styles.addPhoto} onPress = {pickImage}>
+              Selecionar foto
+            </Text>
+            <Text style = {styles.addPhoto} onPress = {takePhoto}>
+              Capturar foto
+            </Text>
           </View>
         </View>
 
         <View style={styles.dataCard}>
+
           <View style={styles.dataTitleContainer}>
             <View style={styles.titleIcon}>
-              <Ionicons name="person" size={26} color="#F3680A" />
+              <Ionicons
+                name="person"
+                size={26}
+                color="#F3680A"
+              />
             </View>
 
-            <Text style={styles.dataTitle}>Seus dados</Text>
+            <Text style={styles.dataTitle}>
+              Seus dados
+            </Text>
           </View>
 
-          <TouchableOpacity style={styles.dataItem} activeOpacity={0.8}>
+          <TouchableOpacity
+            style={styles.dataItem}
+            activeOpacity={0.8}
+          >
             <View style={styles.dataIcon}>
-              <Ionicons name="mail-outline" size={26} color="#F3680A" />
+              <Ionicons
+                name="mail-outline"
+                size={26}
+                color="#F3680A"
+              />
             </View>
 
             <View style={styles.dataText}>
               <Text style={styles.label}>Email</Text>
-              <Text style={styles.value}>nicknicks@email.com</Text>
+              <Text style={styles.value}>
+                nicknicks@email.com
+              </Text>
             </View>
+
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.dataItem} activeOpacity={0.8}>
+          <TouchableOpacity
+            style={styles.dataItem}
+            activeOpacity={0.8}
+          >
             <View style={styles.dataIcon}>
-              <Ionicons name="call-outline" size={26} color="#F3680A" />
+              <Ionicons
+                name="call-outline"
+                size={26}
+                color="#F3680A"
+              />
             </View>
 
             <View style={styles.dataText}>
               <Text style={styles.label}>Telefone</Text>
-              <Text style={styles.value}>+55 (19) xxxx-9352</Text>
+              <Text style={styles.value}>
+                +55 (19) xxxx-9352
+              </Text>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.dataItem} activeOpacity={0.8}>
+          <TouchableOpacity
+            style={styles.dataItem}
+            activeOpacity={0.8}
+          >
             <View style={styles.dataIcon}>
-              <Ionicons name="lock-closed-outline" size={26} color="#F3680A" />
+              <Ionicons
+                name="lock-closed-outline"
+                size={26}
+                color="#F3680A"
+              />
             </View>
 
             <View style={styles.dataText}>
               <Text style={styles.label}>Senha</Text>
-              <Text style={styles.value}>••••••••••••</Text>
+              <Text style={styles.value}>
+                ••••••••••••
+              </Text>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.dataItem} activeOpacity={0.8}>
+          <TouchableOpacity
+            style={styles.dataItem}
+            activeOpacity={0.8}
+          >
             <View style={styles.dataIcon}>
-              <Ionicons name="home-outline" size={26} color="#F3680A" />
+              <Ionicons
+                name="home-outline"
+                size={26}
+                color="#F3680A"
+              />
             </View>
 
             <View style={styles.dataText}>
-              <Text style={styles.label}>Porte do viveiro</Text>
-              <Text style={styles.value}>médio</Text>
+              <Text style={styles.label}>
+                Porte do viveiro
+              </Text>
+
+              <Text style={styles.value}>
+                médio
+              </Text>
             </View>
+
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -138,13 +209,21 @@ const ProfileScreen = ({ navigation }) => {
             activeOpacity={0.8}
             onPress={() => navigation.navigate("EditProfile")}
           >
-            <Ionicons name="create-outline" size={26} color="#FFFFFF" />
+            <Ionicons
+              name="create-outline"
+              size={26}
+              color="#FFFFFF"
+            />
 
-            <Text style={styles.editButtonText}>Editar dados</Text>
+            <Text style={styles.editButtonText}>
+              Editar dados
+            </Text>
           </TouchableOpacity>
+
         </View>
 
         <View style={styles.bottomSpace} />
+
       </ScrollView>
     </ScreenWithTabBar>
   );
@@ -359,7 +438,6 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: "600",
   },
-
   editButton: {
     width: "100%",
     minHeight: 58,
