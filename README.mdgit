@@ -35,7 +35,7 @@ O Guyra permite a visualização dos dados da condição nos viveiros, sendo ele
 
 - Como executar o projeto:
   1. Clonar ou baixar o projeto
-  2. Baixar as dependências:
+  2. Baixar as dependências, dentro da pasta do projeto, executando o comando "npm install" ou os comandos:
     npm install @react-navigation/native @react-navigation/native-stack
     npx expo install react-native-screens react-native-safe-area-context
     npx expo install expo-image-picker
