@@ -11,8 +11,7 @@ O Guyra permite a visualização dos dados da condição nos viveiros, sendo ele
   -Cadastro:
     Tela de cadastro com logo do projeto, input para nome, input para telefone, input para email, input para senha e botão para criar conta.
   -Principal:
-    Essa página vem logo após o login, fornecendo ao avicultor as informações gerais do viveiro, como temperatura média, umidade média, a média da concentração de gases e a lumonisidade média. A página também oferece um simples resumo sobre as condições do viveiro, 
-    alertando o avicultor caso alguma delas esteja fora do comum.
+    Essa página vem logo após o login, fornecendo ao avicultor as informações gerais do viveiro, como temperatura média, umidade média, a média da concentração de gases e a lumonisidade média. A página também oferece um simples resumo sobre as condições do viveiro, alertando o avicultor caso alguma delas esteja fora do comum.
   -Açoes:
     Página para realizar ações no projeto físico, como desligar e ligar ventiladores e exaustores, esses que são ligados automaticamente baseando-se nas leituras dos sensores.
   -Alertas:
@@ -22,8 +21,7 @@ O Guyra permite a visualização dos dados da condição nos viveiros, sendo ele
   -Edição de perfil:
     Página onde os dados citados anteriormente poderão ser, de forma simples, alterados pelo usuário.
 - Navegação:
-  Para a realização da navegação entre telas foram usados o "React Navigation" e sua biblioteca "Native Stack Navigator", o projeto conta com uma barra de navegação na parte inferior da tela, a mesma conta com 4 ícones diferentes, cada um levando a uma página especifíca
-  (principal, ações, avisos e perfil). Para os ícones foi utilizada a biblioteca "@expo/vector-icons".
+  Para a realização da navegação entre telas foram usados o "React Navigation" e sua biblioteca "Native Stack Navigator", o projeto conta com uma barra de navegação na parte inferior da tela, a mesma conta com 4 ícones diferentes, cada um levando a uma página especifíca (principal, ações, avisos e perfil). Para os ícones foi utilizada a biblioteca "@expo/vector-icons".
 
 - Tecnologias utilizadas:
   * React Native
