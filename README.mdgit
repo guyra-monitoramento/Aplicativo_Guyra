@@ -1,1 +1,48 @@
-"# Aplicativo_Guyra"  initgit add README.mdgit commit -m "first commit"git branch -M maingit remote add origin https://github.com/guyra-monitoramento/Aplicativo_Guyra.gitgit push -u origin main
+Aplicativo mobile desenvolvido utilizando React Native para o monitoramento de viveiros.
+O Guyra permite a visualização dos dados da condição nos viveiros, sendo eles: temperatura, umidade, concentração de gases e luminosidade.
+
+- Telas:
+  -Inicial:
+    Uma simples tela mostrando o logo e nome do projeto.
+  -Login:
+    Tela de login com logo do projeto, input para email, imput para senha, botão de entrada e um hyperlink para a página de cadastro. Atualmente o login usa credenciais únicas, sendo elas: 
+      Email: guyra@gmail.com 
+      Senha: 123
+  -Cadastro:
+    Tela de cadastro com logo do projeto, input para nome, input para telefone, input para email, input para senha e botão para criar conta.
+  -Principal:
+    Essa página vem logo após o login, fornecendo ao avicultor as informações gerais do viveiro, como temperatura média, umidade média, a média da concentração de gases e a lumonisidade média. A página também oferece um simples resumo sobre as condições do viveiro, 
+    alertando o avicultor caso alguma delas esteja fora do comum.
+  -Açoes:
+    Página para realizar ações no projeto físico, como desligar e ligar ventiladores e exaustores, esses que são ligados automaticamente baseando-se nas leituras dos sensores.
+  -Alertas:
+    Página onde os principais alertas serão mostrados, exemplos: Temperatura muito alta, umidade muito baixa, luminosidade alta, concentração de gases alta, etc. Também serão visiveis os dias quando os alertas foram registrados.
+  -Perfil:
+    Nesta página serão fornecidos os dados do usúario, como foto, email, nome, senha, telefone e porte do viveiro. Na mesma pagina podemos alterar a foto de perfil utilizando alguma escolhida na galeria ou alguma foto capturada no momento.
+  -Edição de perfil:
+    Página onde os dados citados anteriormente poderão ser, de forma simples, alterados pelo usuário.
+- Navegação:
+  Para a realização da navegação entre telas foram usados o "React Navigation" e sua biblioteca "Native Stack Navigator", o projeto conta com uma barra de navegação na parte inferior da tela, a mesma conta com 4 ícones diferentes, cada um levando a uma página especifíca
+  (principal, ações, avisos e perfil). Para os ícones foi utilizada a biblioteca "@expo/vector-icons".
+
+- Tecnologias utilizadas:
+  * React Native
+  * Expo
+  * JavaScript
+  * React
+  * React Navigation
+  * React Native Safe Area Context
+  * Expo Image Picker
+  * Expo Vector Icons
+
+- Como executar o projeto:
+  1. Clonar ou baixar o projeto
+  2. Baixar as dependências:
+    npm install @react-navigation/native @react-navigation/native-stack
+    npx expo install react-native-screens react-native-safe-area-context
+    npx expo install expo-image-picker
+    npx expo install @expo/vector-icons
+  3. Inicializar o projeto com o comando:
+    npx expo start (ou npx expo start --tunnel)
+- Permissões:
+  A funcionalidade da mudança de imagens exige o acesso a galeria e câmera do dispositivo.
